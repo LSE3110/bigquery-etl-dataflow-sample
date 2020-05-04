@@ -75,7 +75,7 @@ public class BQETLSimple {
     PCollection<KV<Long,MusicBrainzDataObject>> artists = MusicBrainzTransforms.loadTable(p,"artist","id",
             MusicBrainzTransforms.lookup("area", "id", "name", "area", "begin_area"),
             MusicBrainzTransforms.lookup("gender","id","name","gender"),
-	MusicBrainzTransforms.lookup("artist_type","id","name","type"));
+	MusicBrainzTransforms.lookup("type","id","name","type"));
 
     //PCollection<KV<Long, MusicBrainzDataObject>> artists = MusicBrainzTransforms.loadTable(p, "artist", "id");
     // [END loadArtistsWithLookups]
