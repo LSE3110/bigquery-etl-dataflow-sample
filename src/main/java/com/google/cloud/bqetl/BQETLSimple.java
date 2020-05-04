@@ -74,8 +74,7 @@ public class BQETLSimple {
     // [START loadArtistsWithLookups]
     PCollection<KV<Long,MusicBrainzDataObject>> artists = MusicBrainzTransforms.loadTable(p,"artist","id",
             MusicBrainzTransforms.lookup("area", "id", "name", "area", "begin_area"),
-            MusicBrainzTransforms.lookup("gender","id","name","gender"),
-	MusicBrainzTransforms.lookup("type","id","name","type"));
+            MusicBrainzTransforms.lookup("gender","id","name","gender"));
 
     //PCollection<KV<Long, MusicBrainzDataObject>> artists = MusicBrainzTransforms.loadTable(p, "artist", "id");
     // [END loadArtistsWithLookups]
@@ -139,8 +138,8 @@ public class BQETLSimple {
         .intField("artist_end_date_year")
         .intField("artist_end_date_month")
         .intField("artist_end_date_day")
-    //    .intField("artist_type")
-        .stringField("artist_type")
+        .intField("artist_type")
+        
 // [START schemaCodeChange]
 /*Switch these two lines when using mapping table for artist_area */
         .stringField("artist_area")
